@@ -1,12 +1,13 @@
-import Navbar from '@/components/Navbar'
+//import Navbar from '@/components/Navbar'
 import React, { useEffect } from 'react';
 import Footer from '@/components/NavInfo'
-import BotonWhatsapp from '@/components/BotonWhatsapp'
+//import BotonWhatsapp from '@/components/BotonWhatsapp'
 import Galeria from '@/components/Galeria'
 import AliadosCarrusel from '@/components/NuestrosAliados'
 import InfoCards from '@/components/infocards'
-import SocialButtons from "@/components/SocialButtons";
+//import SocialButtons from "@/components/SocialButtons";
 import NuestraExperiencia from '@/components/NuestraExperiencia'
+import Layout from '@/components/layout'
 
 export default function Home() {
   useEffect(() => {
@@ -15,16 +16,13 @@ export default function Home() {
   
   return (
     <>
-      <SocialButtons />
-      <Navbar />
-      <Galeria />
-      <InfoCards />
-      <NuestraExperiencia/>
-      <AliadosCarrusel />
-      <BotonWhatsapp />
-      <div>
-        <Footer />
-      </div>
+      <Layout className='w-full'>
+        <Galeria />
+        <InfoCards />
+        <NuestraExperiencia/>
+        <AliadosCarrusel />
+      </Layout>
+      
     </>
   );
 }

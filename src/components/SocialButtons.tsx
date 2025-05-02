@@ -3,7 +3,7 @@ import { FaFacebookF, FaInstagram,  FaLinkedinIn, FaYoutube } from "react-icons/
 
 export default function SocialButtons() {
   return (
-    <div className="fixed right-4 top-1/3 flex flex-col gap-4 z-50">
+    <div className="fixed top-1/2 right-0 transform -translate-y-1/2 z-50 flex flex-col space-y-2">
       <a
         href="https://www.facebook.com/GrupoEducativoAvancemos/?locale=es_LA"
         target="_blank"
