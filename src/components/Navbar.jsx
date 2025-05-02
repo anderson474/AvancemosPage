@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { Menu, X } from 'lucide-react'; 
+import Link from 'next/link';
 //import logo from '/logo.ico';
 //import { Link } from "react-router-dom";
 
@@ -19,13 +20,13 @@ const Navbar = () => {
         {/* Menú en pantallas grandes */}
         <div className="hidden md:flex space-x-6 p-4" style={{ color: 'rgb(45, 168, 54)' }}>
             <ul className="flex space-x-6"> {/* Aseguramos que sea una lista ordenada */}
-                <li><a href="#" style={{ color: 'rgb(45, 168, 54)' }}>Inicio</a></li>
-                <li><a href="#" style={{ color: 'rgb(45, 168, 54)' }}>Pagos</a></li>
-                <li><a href="#" style={{ color: 'rgb(45, 168, 54)' }}>Avancemos Virtual</a></li>
-                <li><a href="#" style={{ color: 'rgb(45, 168, 54)' }}>conócenos</a></li>
-                <li><a href="#" style={{ color: 'rgb(45, 168, 54)' }}>portafolio</a></li>
-                <li><a href="#" style={{ color: 'rgb(45, 168, 54)' }}>Resultados</a></li>
-                <li><a href="#" style={{ color: 'rgb(45, 168, 54)' }}>Blog</a></li>
+            <li><Link href="/" style={{ color: 'rgb(45, 168, 54)' }}>Inicio</Link></li>
+            <li><Link href="/pagos" style={{ color: 'rgb(45, 168, 54)' }}>Pagos</Link></li>
+            <li><Link href="/avancemos-virtual" style={{ color: 'rgb(45, 168, 54)' }}>Avancemos Virtual</Link></li>
+            <li><Link href="/conocenos" style={{ color: 'rgb(45, 168, 54)' }}>Conócenos</Link></li>
+            <li><Link href="/portafolio" style={{ color: 'rgb(45, 168, 54)' }}>Portafolio</Link></li>
+            <li><Link href="/resultados" style={{ color: 'rgb(45, 168, 54)' }}>Resultados</Link></li>
+            <li><Link href="/blog" style={{ color: 'rgb(45, 168, 54)' }}>Blog</Link></li>
             </ul>
         </div>
 
