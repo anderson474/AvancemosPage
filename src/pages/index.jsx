@@ -5,6 +5,7 @@ import BotonWhatsapp from '@/components/BotonWhatsapp'
 import Galeria from '@/components/Galeria'
 import AliadosCarrusel from '@/components/NuestrosAliados'
 import InfoCards from '@/components/infocards'
+import SocialButtons from "@/components/SocialButtons";
 import NuestraExperiencia from '@/components/NuestraExperiencia'
 
 export default function Home() {
@@ -14,9 +15,11 @@ export default function Home() {
   
   return (
     <>
+      <SocialButtons />
       <Navbar />
       <Galeria />
       <InfoCards />
+      <NuestraExperiencia/>
       <AliadosCarrusel />
       <BotonWhatsapp />
       <div>

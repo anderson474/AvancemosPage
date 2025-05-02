@@ -17,7 +17,7 @@ const AliadosCarrusel = () => {
 
   return (
     <div className="w-full overflow-hidden bg-white mt-1">
-      <h2 className="text-5xl font-bold text-center mb-6 text-[rgba(45,168,54,1)]">Nuestros Aliados</h2>
+      <h2 className="text-4xl font-bold text-center mb-6 text-[rgba(45,168,54,1)]">Nuestros Aliados</h2>
       <Swiper
         modules={[Autoplay]}
         loop={true}

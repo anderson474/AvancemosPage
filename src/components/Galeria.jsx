@@ -7,7 +7,7 @@ import 'swiper/css/autoplay';
 
 const Galeria = () => {
   return (
-    <div className="w-full max-w-7xl mx-auto mt-25 bg-white">
+    <div className="w-full mt-25 bg-white">
       <Swiper
         modules={[Autoplay, Pagination]}
         autoplay={{ delay: 3000, disableOnInteraction: false }}
