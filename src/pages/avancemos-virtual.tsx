@@ -14,21 +14,52 @@ export default function AvancemosVirtual() {
   const handleLogin = async (e: React.FormEvent) => {
     e.preventDefault()
   
-    // Validación básica antes de enviar a Supabase
     if (!email || !password) {
       setError('Por favor ingrese su correo y contraseña')
       return
     }
   
-    const { error } = await supabase.auth.signInWithPassword({
+    const { data: signInData, error: signInError } = await supabase.auth.signInWithPassword({
       email,
       password,
     })
   
-    if (error) {
+    if (signInError || !signInData.user) {
       setError('Correo o contraseña incorrectos')
-    } else {
-      router.push('/dashboard')
+      return
+    }
+  
+    // Obtener el ID del usuario
+    const userId = signInData.user.id
+  
+    // Consultar la tabla perfiles
+    const { data: perfilData, error: perfilError } = await supabase
+      .from('perfiles')
+      .select('rol')
+      .eq('id', userId)
+      .single()
+  
+    if (perfilError || !perfilData) {
+      setError('No se pudo obtener el perfil del usuario')
+      return
+    }
+  
+    // Redirigir según el rol
+    const rol = perfilData.rol
+  
+    switch (rol) {
+      case 'admin':
+        router.push('/Dashboard/admin')
+        break
+      case 'docente':
+        router.push('/Dashboard/docente')
+        break
+      case 'alumno':
+        router.push('/Dashboard/alumno')
+        break
+      default:
+        setError('Rol no reconocido')
+        break
     }
   }
   
