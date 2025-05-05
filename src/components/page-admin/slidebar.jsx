@@ -20,35 +20,21 @@ export default function Slidebar() {
           className="flex items-center py-2 rounded hover:bg-blue-50"
           style={{ color: 'rgb(45, 168, 54)' }}
         >
-          <FaLanguage className="mr-2" /> Bilinguismo
+          <FaLanguage className="mr-2" /> Crear Usuarios
         </a>
         <a
           href="#"
           className="flex items-center py-2 rounded hover:bg-blue-50"
           style={{ color: 'rgb(45, 168, 54)' }}
         >
-          <FaClipboard className="mr-2" /> Pre-saber
+          <FaClipboard className="mr-2" /> Eliminar Usuarios
         </a>
         <a
           href="#"
           className="flex items-center py-2 rounded hover:bg-blue-50"
           style={{ color: 'rgb(45, 168, 54)' }}
         >
-          <FaChalkboardTeacher className="mr-2" /> Evaluación
-        </a>
-        <a
-          href="#"
-          className="flex items-center py-2 rounded hover:bg-blue-50"
-          style={{ color: 'rgb(45, 168, 54)' }}
-        >
-          <FaChalkboardTeacher className="mr-2" /> Formación Continua
-        </a>
-        <a
-          href="#"
-          className="flex items-center py-2 rounded hover:bg-blue-50"
-          style={{ color: 'rgb(45, 168, 54)' }}
-        >
-          <FaChalkboardTeacher className="mr-2" /> Educación inclusiva
+          <FaChalkboardTeacher className="mr-2" /> Asignar Rutas
         </a>
       </nav>
 

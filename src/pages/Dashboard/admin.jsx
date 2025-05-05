@@ -2,6 +2,7 @@
 import { useEffect, useState } from 'react'
 import { useRouter } from 'next/router'
 import { createClient } from '../../../utils/supabase/client'
+import Slidebar from '@/components/page-admin/slidebar'
 
 export default function AdminPage() {
   const [loading, setLoading] = useState(true)
@@ -42,6 +43,10 @@ export default function AdminPage() {
   if (loading) return <div>Cargando...</div>
   if (error) return <div>Error: {error}</div>
 
-  return <h1 className='text-black'>Bienvenido, Admin</h1>
+  return (
+    <>
+      <Slidebar/>
+    </>
+  )
 }
 
