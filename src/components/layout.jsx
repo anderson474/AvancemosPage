@@ -5,9 +5,9 @@ import SocialButtons from "./SocialButtons";
 import Footer from './NavInfo';
 
 
-export default function Layout({ children }) {
+export default function Layout({ children, className = '' }) {
     return (
-      <div className="w-full overflow-x-hidden">
+      <div className={`w-full overflow-x-hidden ${className}`}>
         <Navbar />
         <BotonWhatsapp />
         <SocialButtons />

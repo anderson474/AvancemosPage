@@ -32,7 +32,7 @@ export default function Slidebar(){
       <a href="#" className="flex items-center py-2 px-4 rounded hover:bg-blue-50" style={{ color: 'rgb(45, 168, 54)' }}>
         <FaAccessibleIcon className="mr-2" /> Educacion inclusiva
       </a>
-      <Link href="#" className="flex items-center pt-20 px-4 rounded hover:bg-blue-50" style={{ color: 'rgb(45, 168, 54)' }}>
+      <Link href="/" className="flex items-center pt-20 px-4 rounded hover:bg-blue-50" style={{ color: 'rgb(45, 168, 54)' }}>
         <FaSignOutAlt className="mr-2" /> Cerrar sesión
       </Link>
     </nav>
