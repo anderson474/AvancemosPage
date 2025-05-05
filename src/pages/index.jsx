@@ -1,6 +1,5 @@
 //import Navbar from '@/components/Navbar'
 import React, { useEffect } from 'react';
-import Footer from '@/components/NavInfo'
 //import BotonWhatsapp from '@/components/BotonWhatsapp'
 import Galeria from '@/components/Galeria'
 import AliadosCarrusel from '@/components/NuestrosAliados'

@@ -1,9 +1,12 @@
 import { useEffect, useState } from 'react'
 import { useRouter } from 'next/router'
 import { createClient } from '../../../utils/supabase/client'
+import Slidebar from '@/components/page-alumnos/slidebar'
+import Bienvenida from '@/components/page-alumnos/bienvenida'
 
 export default function AlumnoPage() {
   const [loading, setLoading] = useState(true)
+  const [nombre, setNombre] = useState('');
   const [error, setError] = useState(null)
   const router = useRouter()
 
@@ -20,14 +23,14 @@ export default function AlumnoPage() {
 
         const { data: perfil } = await supabase
           .from('perfiles')
-          .select('rol')
+          .select('rol, name')
           .eq('id', user.id)
           .single()
 
         if (perfil?.rol !== 'alumno') {
           router.push('/')
         }
-
+        setNombre(perfil.name);
         setLoading(false)
       } catch (err) {
         setError(err.message)
@@ -41,5 +44,14 @@ export default function AlumnoPage() {
   if (loading) return <div>Cargando...</div>
   if (error) return <div>Error: {error}</div>
 
-  return <h1 className='text-black'>Bienvenido, Alumno</h1>
+  return(
+    <>
+        <Slidebar />
+        <main className="p-6">
+        <Bienvenida nombre={nombre} />
+        {/* Aquí puedes agregar más contenido del alumno */}
+      </main>
+    </>
+    
+  );
 }
