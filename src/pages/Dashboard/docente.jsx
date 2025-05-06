@@ -1,6 +1,8 @@
 import { useEffect, useState } from 'react'
 import { useRouter } from 'next/router'
 import { createClient } from '../../../utils/supabase/client'
+import GestionClases from '@/components/page-docentes/gestionar-clases'
+import GestionRutas from '@/components/page-docentes/gestionar-rutas'
 
 export default function DocentePage() {
   const [loading, setLoading] = useState(true)
@@ -41,5 +43,10 @@ export default function DocentePage() {
   if (loading) return <div>Cargando...</div>
   if (error) return <div>Error: {error}</div>
 
-  return <h1 className='text-black'>Bienvenido, Docente</h1>
+  return(
+    <>
+    <GestionRutas/>
+    
+    </>
+  );
 }
