@@ -9,8 +9,8 @@ import LineaDelTiempo from '@/components/conocenos/lineadeltiempo'
 export default function Conocenos() {
   return (
     <div>
-      <Layout className="grayscale bg-gray-100 isolate">
-        <div className="filter-none isolate">
+      <Layout >
+        <div>
           <LineaDelTiempo />
         </div>
       </Layout>

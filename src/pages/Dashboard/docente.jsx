@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react'
 import { useRouter } from 'next/router'
 import { createClient } from '../../../utils/supabase/client'
-import GestionClases from '@/components/page-docentes/gestionar-clases'
+
 import GestionRutas from '@/components/page-docentes/gestionar-rutas'
 
 export default function DocentePage() {
