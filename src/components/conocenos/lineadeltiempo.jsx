@@ -13,14 +13,14 @@ const LineaDelTiempo = () => {
         width={500}
         height={100}
         alt="Picture of the author"
-        className="pt-20"
+        className="pt-30"
         />
-        <div className='bg-black fixed top-0 right-0 h-104 w-225'>
+        <div className='bg-black absolute top-0 right-0 h-113.5 w-213'>
           <motion.h1
           initial={{ opacity: 0, x: 40 }}
           animate={{ opacity: 1, x: 0 }}
           transition={{ duration: 1.25, ease: 'easeOut' }}
-          className="text-xl pt-25 text-center font-semibold text-white"
+          className="text-xl pt-40 text-center font-semibold text-white"
         >
           ¿Quiénes Somos?
         </motion.h1>

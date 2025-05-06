@@ -67,3 +67,9 @@ button:focus-visible {
 .isolated {
   isolation: isolate; /* Aísla los efectos visuales */
 }
+/* tailwind.config.js o un archivo CSS */
+@layer utilities {
+  .rotate-y-180 {
+    transform: rotateY(180deg);
+  }
+}
