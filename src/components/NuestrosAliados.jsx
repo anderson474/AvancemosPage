@@ -9,6 +9,7 @@ const AliadosCarrusel = () => {
     { nombre: 'Aliado 2', logo: '/NuestrosAliados/escudo_UAntioquia.jpeg' },
     { nombre: 'Aliado 3', logo: '/NuestrosAliados/ASTMECO_Mesa-de-trabajo-1.png' },
     { nombre: 'Aliado 4', logo: '/NuestrosAliados/LOGO-EDITORIAL_Mesa-de-trabajo-1.png' },
+    { nombre: 'Aliado 5', logo: '/NuestrosAliados/RevistaCientifica.png' },
     // Puedes duplicar estos para mejorar el efecto
   ];
 
