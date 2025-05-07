@@ -29,7 +29,7 @@ const CountdownEcard = () => {
   return (
     <div className="fixed top-20 left-0 w-full bg-green-600 text-white py-4 z-40 shadow-md">
         <div className="flex items-center justify-left space-x-4 text-2xl font-semibold">
-        <span>CURSOS VACAIONALES</span>
+        <span>CURSOS VACAICONALES</span>
         <span>¡Cupos limitados!</span>
         <span>¡Regístrate ya!</span>
         {timeLeft ? (

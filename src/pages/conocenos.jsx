@@ -14,8 +14,8 @@ export default function Conocenos() {
       
         <LineaDelTiempo />
         <StatsSection/>
-        <GallerySection/>
         <GalleryAdmin/>
+        <GallerySection/>
       </Layout>
     </div>
   );

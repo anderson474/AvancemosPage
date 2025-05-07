@@ -18,7 +18,7 @@ export default function StatsSection() {
     ];
   
     return (
-      <div className="bg-blue-700 text-white py-20 flex justify-center gap-12 flex-wrap">
+      <div className="bg-white text-white py-20 flex justify-center gap-12 flex-wrap">
         {stats.map((stat, index) => (
           <div
             key={index}

@@ -15,12 +15,12 @@ const LineaDelTiempo = () => {
         alt="Picture of the author"
         className="pt-30"
         />
-        <div className='bg-black absolute top-0 right-0 h-113.5 w-213'>
+        <div className='bg-white absolute top-0 right-0 h-113.5 w-213'>
           <motion.h1
           initial={{ opacity: 0, x: 40 }}
           animate={{ opacity: 1, x: 0 }}
           transition={{ duration: 1.25, ease: 'easeOut' }}
-          className="text-xl pt-40 text-center font-semibold text-white"
+          className="text-xl pt-40 text-center font-semibold text-black"
         >
           ¿Quiénes Somos?
         </motion.h1>
@@ -28,7 +28,7 @@ const LineaDelTiempo = () => {
           initial={{ opacity: 0, x: 40 }}
           animate={{ opacity: 1, x: 0 }}
           transition={{ duration: 10, ease: 'easeOut' }}
-          className="text-base text-center font-light text-white pt-10"
+          className="text-base text-center font-light text-black pt-10"
         >
           Somos una empresa dedicada a la prestación de servicios educativos integrales, 
           de la mejor calidad, con amplio reconocimiento y alianzas estratégicas en el mercado, 

@@ -38,14 +38,14 @@ export default function GallerySection() {
   {team.map((person, index) => (
     <div key={index}>
       <h3 className="text-lg font-bold text-blue-800 mb-2">{person.role}</h3>
-      <div className="w-40 h-40 mx-auto border-4 border-blue-800 rounded-full overflow-hidden mb-4">
+      <div className="w-80 h-80 mx-auto border-4 border-blue-800 rounded-full overflow-hidden mb-4">
         <img
           src={person.image}
           alt={person.name}
           className="w-full h-full object-cover"
         />
       </div>
-      <p className="font-semibold text-blue-900">{person.name}</p>
+      <p className="font-semibold text-blue-900 text-xl">{person.name}</p>
       <p className="text-sm text-gray-600 px-4 mt-2">{person.description}</p>
     </div>
   ))}
