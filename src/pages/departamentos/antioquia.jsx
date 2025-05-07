@@ -459,6 +459,7 @@ export default function EscudosGrid() {
   const [selectedSchool, setSelectedSchool] = useState(null);
   const [passwordInput, setPasswordInput] = useState("");
   const [authenticated, setAuthenticated] = useState(false);
+  const [searchTerm, setSearchTerm] = useState("");
 
   const handleOpen = (school) => {
     setSelectedSchool(school);
@@ -478,6 +479,10 @@ export default function EscudosGrid() {
     }
   };
 
+  const filteredSchools = schools.filter((school) =>
+    school.name.toLowerCase().includes(searchTerm.toLowerCase())
+  );
+
   return (
     <Layout>
         <Image
@@ -487,18 +492,27 @@ export default function EscudosGrid() {
                 alt="Banner"
                 className="pt-30"
               />
+        <div className="flex justify-center mb-4 mt-10">
+          <input
+            type="text"
+            placeholder="Buscar colegio..."
+            className="w-full max-w-md p-2 border rounded text-black"
+            value={searchTerm}
+            onChange={(e) => setSearchTerm(e.target.value)}
+          />
+        </div>
     <div className="mt-10">
-      <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-2  ">
-        {schools.map((school, index) => (
+      <div className="grid grid-cols-2 sm:grid-cols-4 md:grid-cols-4 gap-2  ">
+      {filteredSchools.map((school, index) => (
           <div
             key={index}
             className="flex flex-col items-center cursor-pointer border-solid border-2"
             onClick={() => handleOpen(school)}
           >
-            <div className="w-24 h-24 rounded-full overflow-hidden shadow-md bg-gray-100 border">
+            <div className="w-55 h-55 rounded-full overflow-hidden shadow-md bg-gray-100 border">
               <img src={school.image} alt={school.name} className="w-full h-full object-contain" />
             </div>
-            <p className="text-center text-sm font-bold mt-2 text-black">{school.name}</p>
+            <p className="text-center text-sm font-bold mt-2 text-black" class="italic">{school.name}</p>
           </div>
         ))}
       </div>
@@ -537,23 +551,44 @@ export default function EscudosGrid() {
               </div>
             </div>
           ) : (
-            <div className="flex w-full h-screen">
-                <button
-                    className="absolute top-2 right-3 text-gray-600 hover:text-red-500 text-xl"
-                    onClick={handleClose}
-                    >
-                    ✖
-                </button>
+            <div className="flex w-full h-screen relative">
+              <button
+                className="absolute top-2 right-3 text-gray-600 hover:text-red-500 text-xl z-10"
+                onClick={handleClose}
+              >
+                ✖
+              </button>
+
+              {selectedSchool.url && !selectedSchool.url1 && (
                 <iframe
+                  src={selectedSchool.url}
+                  title={`${selectedSchool.name} - Contenido`}
+                  className="w-full h-full border-none"
+                />
+              )}
+
+              {selectedSchool.url1 && !selectedSchool.url && (
+                <iframe
+                  src={selectedSchool.url1}
+                  title={`${selectedSchool.name} - Contenido`}
+                  className="w-full h-full border-none"
+                />
+              )}
+
+              {selectedSchool.url && selectedSchool.url1 && (
+                <>
+                  <iframe
                     src={selectedSchool.url}
                     title={`${selectedSchool.name} - Simulacros Saber`}
                     className="w-1/2 h-full border-none"
-                />
-                <iframe
+                  />
+                  <iframe
                     src={selectedSchool.url1}
                     title={`${selectedSchool.name} - Pruebas Externas`}
                     className="w-1/2 h-full border-none"
-                />
+                  />
+                </>
+              )}
             </div>
           )}
         </div>

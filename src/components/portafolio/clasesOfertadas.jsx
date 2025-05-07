@@ -62,12 +62,7 @@ const CursosForm = () => {
     e.preventDefault();
     setEnviando(true);
     emailjs
-      .send(
-        "service_5gp14v1",    // Reemplaza
-        "template_yo1ax4w",   // Reemplaza
-        formData,
-        "N7GiP_qW7vW2Cy1mR"     // Reemplaza
-      )
+      .send("service_5gp14v1", "template_yo1ax4w", formData, "N7GiP_qW7vW2Cy1mR")
       .then(() => {
         setEnviado(true);
         setEnviando(false);
@@ -90,25 +85,28 @@ const CursosForm = () => {
   };
 
   return (
-    <div style={styles.container}>
-      <h2 style={styles.title}>Nuestros Cursos</h2>
+    <div className="p-10 bg-white text-[#003366] font-sans max-w-4xl mx-auto mt-12">
+      <h2 className="text-3xl font-bold mb-6 text-[#003366]">Nuestros Cursos</h2>
 
       {cursos.map((curso) => (
-        <div key={curso.nombre} style={styles.courseBox}>
-          <div style={styles.courseHeader} onClick={() => toggleCurso(curso.nombre)}>
+        <div key={curso.nombre} className="mb-4 border border-gray-300 rounded-lg overflow-hidden">
+          <div
+            className="bg-[#007acc] text-white px-4 py-3 cursor-pointer flex justify-between"
+            onClick={() => toggleCurso(curso.nombre)}
+          >
             <strong>{curso.nombre}</strong>
             <span>{cursosAbiertos[curso.nombre] ? "▲" : "▼"}</span>
           </div>
           {cursosAbiertos[curso.nombre] && (
             <>
-              <ul style={styles.contentList}>
+              <ul className="bg-[#f4faff] list-disc px-8 py-3">
                 {curso.contenidos.map((item) => (
                   <li key={item}>{item}</li>
                 ))}
               </ul>
-              <div style={styles.buttonWrapper}>
+              <div className="px-6 py-4">
                 <button
-                  style={styles.inscribirmeButton}
+                  className="px-4 py-2 bg-[#007acc] text-white font-bold rounded hover:bg-[#005f99]"
                   onClick={() => abrirFormulario(curso.nombre)}
                 >
                   Inscribirme
@@ -119,16 +117,20 @@ const CursosForm = () => {
         </div>
       ))}
 
-      {/* Modal del Formulario */}
       {formVisible && (
-        <div style={styles.modalOverlay}>
-          <div style={styles.modal}>
-            <button style={styles.closeButton} onClick={cerrarFormulario}>X</button>
-            <h2>Formulario de Inscripción</h2>
-            <p style={styles.note}>
+        <div className="fixed inset-0 bg-black bg-opacity-60 flex justify-center items-center z-50">
+          <div className="bg-white p-8 rounded-lg w-[90%] max-w-xl relative overflow-y-auto max-h-[90vh] text-[#003366]">
+            <button
+              className="absolute top-2 right-4 text-xl text-[#007acc] hover:text-[#005f99]"
+              onClick={cerrarFormulario}
+            >
+              X
+            </button>
+            <h2 className="text-2xl font-bold mb-4">Formulario de Inscripción</h2>
+            <p className="bg-[#e0f0ff] border-l-4 border-[#007acc] p-3 mb-6 text-sm">
               * Si la persona que paga es quien recibe el curso, no debe llenar los datos de estudiante.
             </p>
-            <form onSubmit={handleSubmit} style={styles.form}>
+            <form onSubmit={handleSubmit}>
               {[
                 {
                   label: "Curso a inscribirse*",
@@ -163,14 +165,14 @@ const CursosForm = () => {
                   options: ["Cédula", "Tarjeta de identidad", "Otro"],
                 },
               ].map((field) => (
-                <div key={field.name} style={styles.inputGroup}>
-                  <label style={styles.label}>{field.label}</label>
+                <div key={field.name} className="mb-4">
+                  <label className="block mb-1 font-semibold">{field.label}</label>
                   {field.type === "select" ? (
                     <select
                       name={field.name}
                       value={formData[field.name]}
                       onChange={handleChange}
-                      style={styles.input}
+                      className="w-full px-4 py-2 rounded border border-gray-300 bg-gray-50"
                       required={field.label.includes("*")}
                     >
                       <option value="">Seleccione...</option>
@@ -186,13 +188,17 @@ const CursosForm = () => {
                       name={field.name}
                       value={formData[field.name]}
                       onChange={handleChange}
-                      style={styles.input}
+                      className="w-full px-4 py-2 rounded border border-gray-300 bg-gray-50"
                       required={field.label.includes("*")}
                     />
                   )}
                 </div>
               ))}
-              <button type="submit" style={styles.button} disabled={enviando}>
+              <button
+                type="submit"
+                className="mt-4 px-5 py-3 bg-[#007acc] text-white font-bold rounded hover:bg-[#005f99]"
+                disabled={enviando}
+              >
                 {enviando ? "Enviando..." : "Enviar inscripción"}
               </button>
             </form>
@@ -203,121 +209,7 @@ const CursosForm = () => {
   );
 };
 
-const styles = {
-  container: {
-    padding: "40px",
-    backgroundColor: "#ffffff",
-    color: "#003366",
-    fontFamily: "Arial, sans-serif",
-    maxWidth: "900px",
-    margin: "auto",
-  },
-  title: {
-    fontSize: "28px",
-    fontWeight: "bold",
-    marginBottom: "20px",
-    color: "#003366",
-  },
-  courseBox: {
-    marginBottom: "15px",
-    border: "1px solid #ccc",
-    borderRadius: "8px",
-    overflow: "hidden",
-  },
-  courseHeader: {
-    backgroundColor: "#007acc",
-    color: "#fff",
-    padding: "12px",
-    cursor: "pointer",
-    display: "flex",
-    justifyContent: "space-between",
-  },
-  contentList: {
-    padding: "10px 20px",
-    margin: 0,
-    backgroundColor: "#f4faff",
-    listStyleType: "disc",
-  },
-  buttonWrapper: {
-    padding: "10px 20px",
-  },
-  inscribirmeButton: {
-    padding: "10px 16px",
-    backgroundColor: "#007acc",
-    color: "white",
-    border: "none",
-    borderRadius: "5px",
-    cursor: "pointer",
-    fontWeight: "bold",
-  },
-  modalOverlay: {
-    position: "fixed",
-    top: 0,
-    left: 0,
-    width: "100vw",
-    height: "100vh",
-    backgroundColor: "rgba(0, 0, 0, 0.6)",
-    display: "flex",
-    justifyContent: "center",
-    alignItems: "center",
-    zIndex: 1000,
-  },
-  modal: {
-    backgroundColor: "#fff",
-    padding: "30px",
-    borderRadius: "8px",
-    width: "90%",
-    maxWidth: "600px",
-    position: "relative",
-    overflowY: "auto",
-    maxHeight: "90vh",
-    color: "#003366",
-  },
-  closeButton: {
-    position: "absolute",
-    top: "10px",
-    right: "15px",
-    fontSize: "20px",
-    border: "none",
-    background: "none",
-    cursor: "pointer",
-    color: "#007acc",
-  },
-  note: {
-    backgroundColor: "#e0f0ff",
-    padding: "10px",
-    borderLeft: "4px solid #007acc",
-    marginBottom: "20px",
-  },
-  form: {
-    marginTop: "10px",
-  },
-  inputGroup: {
-    marginBottom: "15px",
-  },
-  label: {
-    display: "block",
-    marginBottom: "6px",
-    fontWeight: "bold",
-  },
-  input: {
-    width: "100%",
-    padding: "10px",
-    borderRadius: "5px",
-    border: "1px solid #ccc",
-    backgroundColor: "#f9f9f9",
-  },
-  button: {
-    padding: "12px 20px",
-    backgroundColor: "#007acc",
-    color: "white",
-    border: "none",
-    borderRadius: "5px",
-    fontWeight: "bold",
-    cursor: "pointer",
-  },
-};
-
 export default CursosForm;
+
 
 
