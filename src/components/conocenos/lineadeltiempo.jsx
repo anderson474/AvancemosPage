@@ -2,25 +2,37 @@
 import React from 'react';
 import Image from 'next/image';
 import { motion } from 'framer-motion';
+import { useState } from 'react';
+
+
+
+  
 //import styles from './LineaDelTiempo.module.css';
 
 const LineaDelTiempo = () => {
+  const [position, setPosition] = useState(50);
   return (
-      
-      <div>
-        <Image
-        src="/conocenos/FotoCEO.jpg"
-        width={500}
-        height={100}
-        alt="Picture of the author"
-        className="pt-30"
-        />
-        <div className='bg-white absolute top-0 right-0 h-113.5 w-213'>
+     <div> 
+    <div className="relative mt-40 ml-10 w-[500px] h-[300px] overflow-hidden">
+    {/* Imagen de fondo */}
+    <Image
+      src="/conocenos/FotoCEO.jpg"
+      alt="Imagen 1"
+      fill
+      className="object-cover rounded-xl"
+    />
+
+    
+
+    
+  </div>
+        
+        <div className='bg-white absolute top-0 right-0 h-113.5 w-200'>
           <motion.h1
           initial={{ opacity: 0, x: 40 }}
           animate={{ opacity: 1, x: 0 }}
           transition={{ duration: 1.25, ease: 'easeOut' }}
-          className="text-xl pt-40 text-center font-semibold text-black"
+          className="text-4xl pt-40 text-center font-semibold text-black"
         >
           ¿Quiénes Somos?
         </motion.h1>
@@ -28,7 +40,7 @@ const LineaDelTiempo = () => {
           initial={{ opacity: 0, x: 40 }}
           animate={{ opacity: 1, x: 0 }}
           transition={{ duration: 10, ease: 'easeOut' }}
-          className="text-base text-center font-light text-black pt-10"
+          className="text-base text-center font-light text-black pt-20"
         >
           Somos una empresa dedicada a la prestación de servicios educativos integrales, 
           de la mejor calidad, con amplio reconocimiento y alianzas estratégicas en el mercado, 

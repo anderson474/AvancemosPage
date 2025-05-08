@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { Menu, X } from 'lucide-react'; 
 import Link from 'next/link';
+import RevealTextHover from '@/components/revealTextHover';
 //import logo from '/logo.ico';
 //import { Link } from "react-router-dom";
 
@@ -8,6 +9,15 @@ const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
 
   const toggleMenu = () => setIsOpen(!isOpen);
+  const links = [
+    { href: "/", label: "Inicio" },
+    { href: "/pagos", label: "Pagos" },
+    { href: "/avancemos-virtual", label: "Avancemos Virtual" },
+    { href: "/conocenos", label: "Conócenos" },
+    { href: "/portafolio", label: "Portafolio" },
+    { href: "/resultado", label: "Resultados" },
+    { href: "/blog", label: "Blog" },
+  ];
 
   return (
     <nav className="fixed top-0 right-0 w-full bg-white shadow-md z-50">
@@ -18,17 +28,15 @@ const Navbar = () => {
         </div>
 
         {/* Menú en pantallas grandes */}
-        <div className="hidden md:flex space-x-6 p-4" style={{ color: 'rgb(45, 168, 54)' }}>
-            <ul className="flex space-x-6"> {/* Aseguramos que sea una lista ordenada */}
-            <li><Link href="/" style={{ color: 'rgb(45, 168, 54)' }}>Inicio</Link></li>
-            <li><Link href="/pagos" style={{ color: 'rgb(45, 168, 54)' }}>Pagos</Link></li>
-            <li><Link href="/avancemos-virtual" style={{ color: 'rgb(45, 168, 54)' }}>Avancemos Virtual</Link></li>
-            <li><Link href="/conocenos" style={{ color: 'rgb(45, 168, 54)' }}>Conócenos</Link></li>
-            <li><Link href="/portafolio" style={{ color: 'rgb(45, 168, 54)' }}>Portafolio</Link></li>
-            <li><Link href="/resultado" style={{ color: 'rgb(45, 168, 54)' }}>Resultados</Link></li>
-            <li><Link href="/blog" style={{ color: 'rgb(45, 168, 54)' }}>Blog</Link></li>
-            </ul>
-        </div>
+        <div className="hidden md:flex space-x-6 p-4">
+      <ul className="flex space-x-6">
+        {links.map((item) => (
+          <li key={item.href} className="relative">
+            <RevealTextHover href={item.href} label={item.label} />
+          </li>
+        ))}
+      </ul>
+    </div>
 
         {/* Botón hamburguesa en pantallas pequeñas */}
         <div className="md:hidden">
