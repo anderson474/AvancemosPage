@@ -1,4 +1,6 @@
-import { useState } from "react";
+"use client";
+import { useEffect, useState } from "react";
+import { motion, AnimatePresence } from "framer-motion";
 
 export default function GallerySection() {
   const images = [
@@ -21,39 +23,36 @@ export default function GallerySection() {
     "/conocenos/Nosotros1.jpg",
   ];
 
-  const [mainImage, setMainImage] = useState(images[0]);
+  const [index, setIndex] = useState(0);
+
+  // Cambia la imagen automáticamente cada 4 segundos
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setIndex((prev) => (prev + 1) % images.length);
+    }, 4000);
+    return () => clearInterval(interval);
+  }, [images.length]);
 
   return (
-    <div className="bg-white py-12 px-6">
+    <div className="bg-white py-12 px-4 sm:px-8 lg:px-20">
       <h2 className="text-3xl font-bold text-center mb-10 text-blue-700">
         Galería Fotográfica
       </h2>
 
-      <div className="grid gap-4">
-        {/* Imagen principal */}
-        <div>
-          <img
-            className=" w-full max-w-full rounded-lg object-contain object-center md:h-[480px]"
-            src={mainImage}
-            alt="Imagen principal"
+      <div className="relative w-full max-h-[500px] overflow-hidden rounded-xl shadow-lg">
+        <AnimatePresence>
+          <motion.img
+            key={images[index]}
+            src={images[index]}
+            alt={`Imagen ${index + 1}`}
+            initial={{ opacity: 0, x: 100 }}
+            animate={{ opacity: 1, x: 0 }}
+            exit={{ opacity: 0, x: -100 }}
+            transition={{ duration: 0.8 }}
+            className="w-full h-[400px] object-contain"
           />
-        </div>
-
-        {/* Miniaturas con scroll horizontal */}
-        <div className="flex overflow-x-auto gap-4 py-2">
-          {images.map((src, index) => (
-            <img
-              key={index}
-              src={src}
-              className="object-cover object-center h-20 w-32 rounded-lg cursor-pointer flex-shrink-0 transition hover:opacity-75"
-              alt={`Miniatura ${index + 1}`}
-              onClick={() => setMainImage(src)}
-            />
-          ))}
-        </div>
+        </AnimatePresence>
       </div>
     </div>
   );
 }
-
-  

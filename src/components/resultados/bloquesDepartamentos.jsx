@@ -41,24 +41,25 @@ export default function RegionesGrid() {
   ];
 
   return (
-    <div className='w-full mt-40'>
+    <div className='w-full mt-50'>
       <Image
         src="/resultados/bannerAnaliticaDatos.png"
         width={1900}
         height={100}
         alt="Banner"
+        className="rounded-lg shadow-xl"
       />
-      <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6 mt-10">
+      <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-8 mt-12 mx-20">
         {departments.map((dep, index) => (
           <Link href={`/departamentos/${dep.path}`} key={index}>
-            <div className="flex items-center justify-between bg-blue-800 text-white rounded-full p-2 pr-4 shadow-md hover:scale-105 transition-transform duration-300 cursor-pointer">
+            <div className="flex items-center justify-between bg-blue-800 text-white rounded-xl p-4 shadow-lg hover:scale-105 transition-all duration-300 transform cursor-pointer hover:bg-blue-700 hover:rotate-3">
               <div className="flex items-center">
-                <div className="w-14 h-14 rounded-full bg-green-400 flex items-center justify-center -ml-4 mr-2 overflow-hidden">
-                  <img src={dep.image} alt={dep.name} className="w-full h-full object-contain" />
+                <div className="w-24 h-24 rounded-full bg-green-500 flex items-center justify-center shadow-lg overflow-hidden -ml-10 z-10">
+                  <img src={dep.image} alt={dep.name} className="w-full h-full object-cover" />
                 </div>
-                <span className="text-sm font-bold uppercase">{dep.name}</span>
+                <span className="ml-4 text-lg font-semibold uppercase tracking-wide">{dep.name}</span>
               </div>
-              <span className="text-xl ml-2">➤</span>
+              <span className="text-2xl ml-4 transform transition-all duration-300 hover:text-green-400">➤</span>
             </div>
           </Link>
         ))}

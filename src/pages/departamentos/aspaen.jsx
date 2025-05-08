@@ -174,7 +174,7 @@ export default function EscudosGrid() {
                     width={1900}
                     height={100}
                     alt="Banner"
-                    className="pt-30"
+                    className="pt-50"
                   />
             <div className="flex justify-center mb-4 mt-10">
               <input

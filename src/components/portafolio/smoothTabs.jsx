@@ -48,7 +48,7 @@ export default function SmoothTabs() {
             key={index}
             onClick={() => setActiveTab(index)}
             className={`py-2 px-4 rounded ${
-              activeTab === index ? "bg-blue-600 text-white" : "bg-gray-200"
+              activeTab === index ? "bg-blue-600 text-white" : "bg-gray-400"
             }`}
           >
             {tab.label}

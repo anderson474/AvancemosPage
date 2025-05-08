@@ -59,16 +59,20 @@ const CountdownEcard = () => {
 
           {timeLeft ? (
             <div className="flex items-center gap-4 text-xl font-mono bg-white/10 px-4 py-2 rounded-lg shadow-inner">
-              <span>{timeLeft.días}d</span>
-              <span>{timeLeft.horas}h</span>
-              <span>{timeLeft.minutos}m</span>
-              <span>{timeLeft.segundos}s</span>
-              <Link href="/portafolio">
-                <button className="ml-4 bg-blue-600 hover:bg-blue-700 text-white text-sm px-4 py-2 rounded-lg shadow transition-transform hover:scale-105">
-                  Inscribirme
-                </button>
-              </Link>
-            </div>
+            <span>{timeLeft.días}d</span>
+            <span>{timeLeft.horas}h</span>
+            <span>{timeLeft.minutos}m</span>
+            <span>{timeLeft.segundos}s</span>
+            <a
+              href="https://docs.google.com/forms/d/e/1FAIpQLSeRkhiMz9icW0iNcCl9RWMhjpfHS5oG_7vZ9u4HUvJrnjkfsA/viewform"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <button className="ml-4 bg-blue-600 hover:bg-blue-700 text-white text-sm px-4 py-2 rounded-lg shadow transition-transform hover:scale-105">
+                Inscribirme
+              </button>
+            </a>
+          </div>
           ) : (
             <div className="text-xl font-semibold">¡El evento ha comenzado!</div>
           )}

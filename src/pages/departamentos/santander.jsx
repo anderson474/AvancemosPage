@@ -91,7 +91,7 @@ export default function EscudosGrid() {
                     alt="Banner"
                     className="pt-30"
                   />
-            <div className="flex justify-center mb-4 mt-10">
+            <div className="flex justify-center mb-4 mt-50">
               <input
                 type="text"
                 placeholder="Buscar colegio..."

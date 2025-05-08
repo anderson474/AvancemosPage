@@ -1,7 +1,8 @@
 import React, { useState } from 'react';
 import { Menu, X } from 'lucide-react'; 
 import Link from 'next/link';
-import RevealTextHover from '@/components/revealTextHover';
+import SlotTextHover from '@/components/slotTextHover';
+
 //import logo from '/logo.ico';
 //import { Link } from "react-router-dom";
 
@@ -11,11 +12,11 @@ const Navbar = () => {
   const toggleMenu = () => setIsOpen(!isOpen);
   const links = [
     { href: "/", label: "Inicio" },
-    { href: "/pagos", label: "Pagos" },
     { href: "/avancemos-virtual", label: "Avancemos Virtual" },
     { href: "/conocenos", label: "Conócenos" },
     { href: "/portafolio", label: "Portafolio" },
     { href: "/resultado", label: "Resultados" },
+    { href: "/workUs", label: "Trabaja Con Nosotros" },
     { href: "/blog", label: "Blog" },
   ];
 
@@ -32,7 +33,7 @@ const Navbar = () => {
       <ul className="flex space-x-6">
         {links.map((item) => (
           <li key={item.href} className="relative">
-            <RevealTextHover href={item.href} label={item.label} />
+            <SlotTextHover  href={item.href} label={item.label} />
           </li>
         ))}
       </ul>
@@ -50,12 +51,13 @@ const Navbar = () => {
       {isOpen && (
       <div className="md:hidden mt-4 flex flex-col items-end space-y-2 text-gray-700">
         <li><Link href="/" style={{ color: 'rgb(45, 168, 54)' }}>Inicio</Link></li>
-        <li><Link href="/pagos" style={{ color: 'rgb(45, 168, 54)' }}>Pagos</Link></li>
         <li><Link href="/avancemos-virtual" style={{ color: 'rgb(45, 168, 54)' }}>Avancemos Virtual</Link></li>
         <li><Link href="/conocenos" style={{ color: 'rgb(45, 168, 54)' }}>Conócenos</Link></li>
         <li><Link href="/portafolio" style={{ color: 'rgb(45, 168, 54)' }}>Portafolio</Link></li>
         <li><Link href="/resultado" style={{ color: 'rgb(45, 168, 54)' }}>Resultados</Link></li>
+        <li><Link href="/workUs" style={{ color: 'rgb(45, 168, 54)' }}>Trabaja Con Nosotros</Link></li>
         <li><Link href="/blog" style={{ color: 'rgb(45, 168, 54)' }}>Blog</Link></li>
+        
       </div>
       )}
     </nav>
