@@ -40,7 +40,7 @@ export default function SmoothTabs() {
   const [activeTab, setActiveTab] = useState(0);
 
   return (
-    <div className="p-4 mt-40">
+    <div className="p-4 mt-60">
       {/* Botones de tabs */}
       <div className="flex space-x-4 mb-6">
         {tabs.map((tab, index) => (

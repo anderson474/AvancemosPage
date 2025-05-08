@@ -69,7 +69,24 @@ button:focus-visible {
 }
 /* tailwind.config.js o un archivo CSS */
 @layer utilities {
-  .rotate-y-180 {
-    transform: rotateY(180deg);
+  
+}
+@keyframes confetti-fall {
+  0% {
+    transform: translateY(0) rotate(0deg);
+    opacity: 1;
   }
+  100% {
+    transform: translateY(100vh) rotate(360deg);
+    opacity: 0;
+  }
+}
+
+@layer utilities {
+  .animate-confetti {
+    animation: confetti-fall 4s linear infinite;
+  }
+    .rotate-y-180 {
+      transform: rotateY(180deg);
+    }
 }

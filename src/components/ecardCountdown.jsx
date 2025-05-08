@@ -27,28 +27,53 @@ const CountdownEcard = () => {
   }, []);
 
   return (
-    <div className="fixed top-20 left-0 w-full bg-green-600 text-white py-4 z-40 shadow-md">
-        <div className="flex items-center justify-left space-x-4 text-2xl font-semibold">
-        <span>CURSOS VACAICONALES</span>
-        <span>¡Cupos limitados!</span>
-        <span>¡Regístrate ya!</span>
-        {timeLeft ? (
-        <div className="text-2xl space-x-4 font-mono fixed right-1">
-          <span>{timeLeft.días}d</span>
-          <span>{timeLeft.horas}h</span>
-          <span>{timeLeft.minutos}m</span>
-          <span>{timeLeft.segundos}s</span>
-          <Link href='/portafolio'>
-          <button className='text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-xs me-1 mb-1 dark:bg-blue-600 dark:hover:bg-blue-700 focus:outline-none dark:focus:ring-blue-800'>
-                inscribirme
-              </button>
-        </Link>
+    <div className="fixed top-20 left-0 w-full z-50">
+      {/* Fondo festivo */}
+      <div
+        className="absolute inset-0 bg-cover bg-center z-[-1]"
+        style={{ backgroundImage: "url('/portafolio/fondo-fiesta.jpg')" }} // Cambia por tu imagen
+      />
+
+      {/* Confeti animado */}
+      <div className="absolute inset-0 overflow-hidden pointer-events-none">
+        {[...Array(20)].map((_, i) => (
+          <div
+            key={i}
+            className="absolute top-0 w-2 h-2 rounded-full animate-confetti"
+            style={{
+              left: `${Math.random() * 100}%`,
+              backgroundColor: ['#facc15', '#f472b6', '#38bdf8'][i % 3],
+              animationDelay: `${Math.random() * 3}s`,
+            }}
+          />
+        ))}
+      </div>
+
+      {/* Tarjeta eCard */}
+      <div className="backdrop-blur-md text-white py-6 px-4 shadow-xl rounded-b-xl">
+        <div className="max-w-7xl mx-auto flex flex-col sm:flex-row items-center justify-between gap-4 text-center sm:text-left">
+          <div>
+            <h2 className="text-3xl font-bold uppercase tracking-wider">Cursos Vacacionales</h2>
+            <p className="text-lg font-medium">¡Cupos limitados! ¡Regístrate ya!</p>
+          </div>
+
+          {timeLeft ? (
+            <div className="flex items-center gap-4 text-xl font-mono bg-white/10 px-4 py-2 rounded-lg shadow-inner">
+              <span>{timeLeft.días}d</span>
+              <span>{timeLeft.horas}h</span>
+              <span>{timeLeft.minutos}m</span>
+              <span>{timeLeft.segundos}s</span>
+              <Link href="/portafolio">
+                <button className="ml-4 bg-blue-600 hover:bg-blue-700 text-white text-sm px-4 py-2 rounded-lg shadow transition-transform hover:scale-105">
+                  Inscribirme
+                </button>
+              </Link>
+            </div>
+          ) : (
+            <div className="text-xl font-semibold">¡El evento ha comenzado!</div>
+          )}
         </div>
-        
-      ) : (
-        <div className="text-xl font-semibold">¡El evento ha comenzado!</div>
-      )}
-        </div>
+      </div>
     </div>
   );
 };
