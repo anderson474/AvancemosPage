@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import Tilt from "react-parallax-tilt";
-
+import Image from 'next/image';
 import SistemasEvaluacion from "@/components/portafolio/sistemasEvaluacion";
 import FormacionContinua from "@/components/portafolio/formacionContinua";
 import FormacionBilingue from "@/components/portafolio/formacionBilingue";
@@ -40,13 +40,15 @@ export default function SmoothTabs() {
   const [activeTab, setActiveTab] = useState(0);
 
   return (
-    <div className="p-4 mt-60">
+    <div className="p-4 mt-80">
       {/* Botones de tabs */}
-      <div className="flex space-x-4 mb-6">
+      <div className="flex space-x-4 mb-6 overflow-x-auto">
         {tabs.map((tab, index) => (
           <button
             key={index}
             onClick={() => setActiveTab(index)}
+            role="tab"
+            aria-selected={activeTab === index}
             className={`py-2 px-4 rounded ${
               activeTab === index ? "bg-blue-600 text-white" : "bg-gray-400"
             }`}
@@ -77,7 +79,9 @@ export default function SmoothTabs() {
             <img
               src={tabs[activeTab].image}
               alt={tabs[activeTab].label}
-              className="w-150 h-auto object-cover rounded-xl shadow-lg border border-white/40"
+              width={500}
+              height={400}
+              className="object-contain rounded-xl shadow-lg border border-white/40"
             />
           </Tilt>
 
