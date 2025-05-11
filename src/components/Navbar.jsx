@@ -49,14 +49,14 @@ const Navbar = () => {
 
       {/* Menú desplegable en móvil */}
       {isOpen && (
-      <div className="md:hidden mt-4 flex flex-col items-end space-y-2 text-gray-700">
-        <li><Link href="/" style={{ color: 'rgb(45, 168, 54)' }}>Inicio</Link></li>
-        <li><Link href="/avancemos-virtual" style={{ color: 'rgb(45, 168, 54)' }}>Avancemos Virtual</Link></li>
-        <li><Link href="/conocenos" style={{ color: 'rgb(45, 168, 54)' }}>Conócenos</Link></li>
-        <li><Link href="/portafolio" style={{ color: 'rgb(45, 168, 54)' }}>Portafolio</Link></li>
-        <li><Link href="/resultado" style={{ color: 'rgb(45, 168, 54)' }}>Resultados</Link></li>
-        <li><Link href="/workUs" style={{ color: 'rgb(45, 168, 54)' }}>Trabaja Con Nosotros</Link></li>
-        <li><Link href="/blog" style={{ color: 'rgb(45, 168, 54)' }}>Blog</Link></li>
+      <div className="md:hidden mt-4 flex flex-col items-center space-y-2 text-gray-700">
+        <Link href="/" style={{ color: 'rgb(45, 168, 54)' }}>Inicio</Link>
+        <Link href="/avancemos-virtual" style={{ color: 'rgb(45, 168, 54)' }}>Avancemos Virtual</Link>
+        <Link href="/conocenos" style={{ color: 'rgb(45, 168, 54)' }}>Conócenos</Link>
+        <Link href="/portafolio" style={{ color: 'rgb(45, 168, 54)' }}>Portafolio</Link>
+        <Link href="/resultado" style={{ color: 'rgb(45, 168, 54)' }}>Resultados</Link>
+        <Link href="/workUs" style={{ color: 'rgb(45, 168, 54)' }}>Trabaja Con Nosotros</Link>
+        <Link href="/blog" style={{ color: 'rgb(45, 168, 54)' }}>Blog</Link>
         
       </div>
       )}

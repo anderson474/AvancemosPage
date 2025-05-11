@@ -25,7 +25,7 @@ const cards = [
     icon: <FaMoneyBillWave size={40} className="text-blue-800" />,
   },
 ];
-
+//bg-blue-800 hover:bg-blue-900 text-white font-bold py-2 rounded-full w-fit px-4
 const InfoCards = () => {
   return (
     <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 p-4 pt-8 w-full">
@@ -37,13 +37,14 @@ const InfoCards = () => {
           <div>{card.icon}</div>
           <h3 className="text-blue-800 font-bold text-xl">{card.title}</h3>
           <p className="text-blue-500 font-normal text-base pt-2 pb-7">{card.description}</p>
-          <button className="bg-blue-800 hover:bg-blue-900 text-white font-bold py-2 rounded-full w-fit px-4">
-            {card.buttonText}
-          </button>
+          
         </div>
       ))}
     </div>
   );
 };
-
+/*
+<button className="bg-white text-white font-bold py-2 rounded-full px-4">
+            {card.buttonText}
+          </button>*/
 export default InfoCards;

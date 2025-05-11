@@ -27,7 +27,7 @@ const CountdownEcard = () => {
   }, []);
 
   return (
-    <div className="fixed top-20 left-0 w-full z-50">
+    <div className="fixed top-20 left-0 w-full z-10">
       {/* Fondo festivo */}
       <div
         className="absolute inset-0 bg-cover bg-center z-[-1]"
