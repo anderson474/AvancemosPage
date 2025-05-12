@@ -495,7 +495,7 @@ export default function EscudosGrid() {
         <div className="flex justify-center mb-4 mt-10">
           <input
             type="text"
-            placeholder="Buscar colegio..."
+            placeholder="buscate aqui..."
             className="w-full max-w-md p-2 border rounded text-black"
             value={searchTerm}
             onChange={(e) => setSearchTerm(e.target.value)}
@@ -506,28 +506,28 @@ export default function EscudosGrid() {
       {filteredSchools.map((school, index) => (
           <div
             key={index}
-            className="flex flex-col items-center cursor-pointer border-solid border-2"
+            className="flex flex-col items-center cursor-pointer"
             onClick={() => handleOpen(school)}
           >
-            <div className="w-55 h-55 rounded-full overflow-hidden shadow-md bg-gray-100 border">
+            <div className="w-40 h-40 rounded-full overflow-hidden shadow-md bg-gray-100 border">
               <img src={school.image} alt={school.name} className="w-full h-full object-contain" />
             </div>
-            <p className="text-center text-sm font-bold mt-2 text-black" class="italic">{school.name}</p>
+            <p className="text-center text-sm font-bold mt-5 text-green-800">{school.name}</p>
           </div>
         ))}
       </div>
-  
+
       {selectedSchool && (
         <div className="fixed inset-0 bg-black bg-opacity-40 z-50">
           {!authenticated ? (
             <div className="flex items-center justify-center h-full">
               <div className="bg-white p-6 rounded-lg w-96 shadow-xl relative">
                 <button
-                  className="absolute top-2 right-3 text-gray-600 hover:text-red-500"
-                  onClick={handleClose}
-                >
-                  ✖
-                </button>
+                    className="absolute top-8 right-3 text-black hover:text-white text-xl bg-red-700"
+                    onClick={handleClose}
+                  >
+                    ✖
+                  </button>
   
                 <h2 className="text-xl text-black font-bold mb-4 text-center">
                   {selectedSchool.name}
