@@ -1,27 +1,29 @@
-//import Navbar from '@/components/Navbar'
+import Head from 'next/head';
 import React, { useEffect } from 'react';
-//import BotonWhatsapp from '@/components/BotonWhatsapp'
-import Galeria from '@/components/Galeria'
-import AliadosCarrusel from '@/components/NuestrosAliados'
-import InfoCards from '@/components/infocards'
-//import SocialButtons from "@/components/SocialButtons";
-import NuestraExperiencia from '@/components/NuestraExperiencia'
-import Layout from '@/components/layout'
+import Galeria from '@/components/Galeria';
+import AliadosCarrusel from '@/components/NuestrosAliados';
+import InfoCards from '@/components/infocards';
+import NuestraExperiencia from '@/components/NuestraExperiencia';
+import Layout from '@/components/layout';
 
 export default function Home() {
   useEffect(() => {
     document.title = 'Avancemos';
   }, []);
-  
+
   return (
     <>
-      <Layout className='w-full'>
+      <Head>
+        <title>Avancemos</title>
+        <link rel="icon" href="/LOGO.png" />
+      </Head>
+
+      <Layout className="w-full">
         <Galeria />
         <InfoCards />
-        <NuestraExperiencia/>
+        <NuestraExperiencia />
         <AliadosCarrusel />
       </Layout>
-      
     </>
   );
 }
