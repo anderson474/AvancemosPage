@@ -68,7 +68,7 @@ const CountdownEcard = () => {
               target="_blank"
               rel="noopener noreferrer"
             >
-              <button className="ml-4 bg-blue-600 hover:bg-blue-700 text-white text-sm px-4 py-2 rounded-lg shadow transition-transform hover:scale-105">
+              <button className="ml-4 bg-blue-600 hover:bg-blue-700 text-white text-sm px-4 py-2 rounded-lg shadow transition-transform hover:scale-105 dark:bg-blue-600 dark:hover:bg-blue-700">
                 Inscribirme
               </button>
             </a>
