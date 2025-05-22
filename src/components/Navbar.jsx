@@ -21,11 +21,11 @@ const Navbar = () => {
   ];
 
   return (
-    <nav className="fixed top-0 right-0 w-full bg-white shadow-md z-50">
+    <nav className="fixed top-0 right-0 w-full bg-white/80 backdrop-blur shadow-md z-50">
       <div className="flex justify-between items-center max-w-8xl mx-auto">
         {/* Logo (opcional) */}
         <div>
-            <img src="/logo.ico" alt="Logo" className="h-20 w-20 object-contain" />
+            <img src="/logo.png" alt="Logo" className="h-20 w-20 object-contain" />
         </div>
 
         {/* Menú en pantallas grandes */}

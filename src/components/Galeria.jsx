@@ -11,7 +11,7 @@ import Image from 'next/image';
 
 const Galeria = () => {
   return (
-    <div className="w-full mt-50 bg-white">
+    <div className="w-full mt-20 bg-white">
       <Swiper
         modules={[Autoplay, Pagination]}
         autoplay={{ delay: 3000, disableOnInteraction: false }}

@@ -5,6 +5,7 @@ import AliadosCarrusel from '@/components/NuestrosAliados';
 import InfoCards from '@/components/infocards';
 import NuestraExperiencia from '@/components/NuestraExperiencia';
 import Layout from '@/components/layout';
+import RedesYPodcast from '@/components/redesSociales'
 
 export default function Home() {
   useEffect(() => {
@@ -47,6 +48,7 @@ export default function Home() {
       <Layout className="w-full">
         <Galeria />
         <InfoCards />
+        <RedesYPodcast/>
         <NuestraExperiencia />
         <AliadosCarrusel />
       </Layout>

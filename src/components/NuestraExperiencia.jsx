@@ -63,7 +63,7 @@ const AliadosCarrusel = () => {
             <img
               src={aliado.logo}
               alt={aliado.nombre}
-              className="w-40 h-40 object-contain mx-auto"
+              className="w-60 h-60 object-contain mx-auto"
             />
           </SwiperSlide>
         ))}
